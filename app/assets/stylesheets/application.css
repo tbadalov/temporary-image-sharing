@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import url('https://fonts.googleapis.com/css?family=Signika&display=swap');
+
+ * {
+   margin: 0;
+   padding: 0;
+ }
+
+ body {}
+
+ nav {
+   background-color: #028AF4;
+ }
+
+ .hee {
+   width: 100%;
+   background-color: #ccc;
+   padding: 20px;
+ }
+
+ #logo {
+   font-family: 'Signika', sans-serif;
+   font-size: 32pt;
+   margin-left: 50px;
+ }
+
+ #info {
+   margin-top: 50px;
+ }
+
+ #fuck {
+   margin: 10px 20px;
+ }
+
+ .upload {
+   margin: 50px auto;
+ }
+
+ .result-pic {
+   width: 200px;
+   height: 200px;
+   object-fit: contain;
+ }
+
+ .result-desc {
+   max-width: 300px;
+   margin: 0 auto;
+ }
+ #url_box {
+   display: block;
+   margin: 5px auto;
+ }
+
+ .result-url {
+   border-radius: 5px;
+   background-color: #ccc;
+   white-space: nowrap;
+   overflow-x: auto;
+ }
+
+ .disco {
+   max-height: 50px;
+ }
+
+ .click-to-copy {
+   width: 200px;
+   border-radius: 5px;
+   background-color: #007bff;
+   color: #fff;
+ }
