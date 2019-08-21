@@ -25,7 +25,7 @@ set :deploy_to, "/home/tmpimg/#{fetch(:application)}"
 namespace :deploy do
   after :finished, :dockerify do
     on "tmpimg@51.75.200.28" do
-      execute "echo $(cat Dockerfile) >> lol_kek"
+      execute "cd #{fetch(:deploy_to)}/current && echo $(cat Dockerfile) >> lol_kek"
     end  
   end
 end
