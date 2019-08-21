@@ -2,13 +2,16 @@ version: '3.3'
 
 services:
         app:
-                image: tmpimg
+                network_mode: bridge
 
+                build:
+                        context: .
+                        dockerfile: Dockerfile
                 deploy:
                         replicas: 3
                         resources:
                                 limits:
-                                        cpus: "0.1"
+                                        cpus: "0.2"
                                         memory: 50M
                         restart_policy:
                                 condition: on-failure
