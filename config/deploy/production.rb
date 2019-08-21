@@ -25,7 +25,7 @@ set :deploy_to, "/home/tmpimg/#{fetch(:application)}"
 namespace :deploy do
   after :finished, :dockerify do
     on "tmpimg@51.75.200.28" do
-      execute "cd #{fetch(:deploy_to)}/current && docker-compose up --build --scale app=3 && docker images -q | while read -r a; do docker image rm $a; done"
+      execute "cd #{fetch(:deploy_to)}/current && docker-compose up --build -d --scale app=3 && docker images -q | while read -r a; do docker image rm $a; done"
     end  
   end
 end
