@@ -5,6 +5,9 @@ WORKDIR /app
 
 COPY . /app
 
+RUN apt-get update
+RUN apt-get install net-tools
+
 RUN gem install bundler
 RUN bundle install
 
@@ -12,7 +15,8 @@ RUN EDITOR="mate --wait" bin/rails credentials:edit
 ENV RAILS_ENV production
 ENV TMPIMG_DB_USERNAME tmpimg
 ENV TMPIMG_DB_PASS heyhey2013
-ENV TMPIMG_DB_HOST 192.168.31.147
+RUN export TMPIMG_DB_HOST=$(netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}')
+#ENV TMPIMG_DB_HOST 192.168.31.147
 
 EXPOSE 3000
 
