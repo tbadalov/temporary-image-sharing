@@ -5,11 +5,11 @@ WORKDIR /app
 
 COPY . /app
 
-RUN apt-get update
-RUN apt-get install net-tools
-
 RUN gem install bundler
 RUN bundle install
+
+RUN apt-get update
+RUN apt-get -y install net-tools
 
 RUN EDITOR="mate --wait" bin/rails credentials:edit
 ENV RAILS_ENV production
