@@ -12,6 +12,7 @@ RUN bundle install
 RUN apt-get update && apt-get -y install apt-utils && apt-get upgrade -y && apt-get autoremove -y
 RUN apt-get -y install net-tools
 
+ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_ENV production
 ENV TMPIMG_DB_USERNAME tmpimg
 ENV TMPIMG_DB_PASS heyhey2013
