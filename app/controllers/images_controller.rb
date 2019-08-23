@@ -34,7 +34,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
           session[:id] = @image.control_hash
-        format.html { redirect_to root_path, notice: 'Image was successfully created.' }
+        format.html { redirect_to root_path(img: @image.control_hash), notice: 'Image was successfully created.' }
         #format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }

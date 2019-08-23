@@ -10,6 +10,8 @@ class MainController < ApplicationController
         if session[:id]
             @image = Image.find_by(control_hash: session[:id])
             session.delete(:id)
+        elsif params[:img]
+            @image = Image.find_by(control_hash: session[:id])
         end
         @image ||= Image.new
     end
