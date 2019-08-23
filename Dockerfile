@@ -8,6 +8,7 @@ COPY . /app
 RUN gem install bundler
 RUN gem install duktape -v '2.3.0.0' --source 'https://rubygems.org/'
 RUN bundle install
+RUN bundle exec rake assets:precompile
 
 RUN apt-get update && apt-get -y install apt-utils && apt-get upgrade -y && apt-get autoremove -y
 RUN apt-get -y install net-tools
