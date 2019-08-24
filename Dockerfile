@@ -6,7 +6,6 @@ WORKDIR /app
 COPY . /app
 
 RUN gem install bundler
-RUN gem install duktape -v '2.3.0.0' --source 'https://rubygems.org/'
 RUN bundle install
 RUN bundle exec rake assets:precompile
 
@@ -14,7 +13,7 @@ ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_ENV production
 ENV TMPIMG_DB_USERNAME tmpimg
 ENV TMPIMG_DB_PASS heyhey2013
-ENV TMPIMG_DB_HOST 172.17.0.1
+ENV TMPIMG_DB_HOST db
 RUN EDITOR="mate --wait" bundle exec rails credentials:edit
 
 EXPOSE 3000

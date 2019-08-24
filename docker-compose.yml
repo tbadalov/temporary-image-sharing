@@ -1,15 +1,27 @@
 version: '3.3'
 
 services:
-        app:
-                volumes:
-                        - "active_storage:/app/storage"
-                network_mode: bridge
-                build:
-                        context: .
-                        dockerfile: Dockerfile
-                ports:
-                        - 32000-32003:3000
+  app:
+    volumes:
+      - "active_storage:/app/storage"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 32000-32003:3000
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0.17
+    ports:
+      - "3366:3306"
+    volumes:
+      - ./mysql_custom.cnf:/etc/mysql/conf.d/custom.cnf
+    environment:
+      MYSQL_DATABASE: tmpimg
+      MYSQL_USER: tmpimg
+      MYSQL_PASSWORD: heyhey2013
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 volumes:
-        active_storage:
-
+  active_storage:
