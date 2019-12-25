@@ -8,6 +8,7 @@ COPY . /app
 RUN gem install bundler
 RUN bundle install
 RUN bundle exec rake assets:precompile
+RUN bundle exec whenever --update-crontab
 
 ENV WAIT_HOSTS db:3306
 ENV RAILS_SERVE_STATIC_FILES true
