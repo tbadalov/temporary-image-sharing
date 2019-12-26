@@ -3,7 +3,7 @@ version: '3.3'
 services:
   app:
     volumes:
-      - "active_storage:/app/storage"
+      - active_storage:/app/storage
     build:
       context: .
       dockerfile: Dockerfile

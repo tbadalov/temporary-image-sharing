@@ -13,10 +13,9 @@ COPY . /app
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait /wait
 RUN chmod +x /wait
 
-RUN mkdir storage
-VOLUME storage
-
+RUN mkdir /app/storage
 RUN chown -R app:app *
+VOLUME /app/storage
 
 USER app
 
