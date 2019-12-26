@@ -9,6 +9,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - 32000-32003:3000
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 20s
     depends_on:
       - db
   db:
